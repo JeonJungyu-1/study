@@ -1,0 +1,26 @@
+@charset "EUC-KR";
+
+div {
+	width: 150px;
+	height: 150px;
+}
+
+#box1 {
+	background-color: yellow;
+	
+	/* border: 10px solid black; */
+	
+	border-width: 10px 20px 30px 40px;
+	border-style: solid dashed dotted double;
+	border-color: red green blue black;
+	
+	padding: 50px;
+	
+	margin: 0 auto;
+	
+	/* margin: 40px 30px 20px 10px; 값  생략하면 맞은편 값으로 설정됨*/
+	/* margin-top: 10px;
+	margin-right: 20px;
+	margin-bottom: 30px;
+	margin-left: 40px; */
+}

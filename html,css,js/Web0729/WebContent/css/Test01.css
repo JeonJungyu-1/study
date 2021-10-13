@@ -1,0 +1,15 @@
+@charset "EUC-KR";
+
+div>h1 {
+	color: red;
+}
+
+#title1 {
+	color: aqua;
+	
+	border: 10px solid red;
+	
+	text-shadow: 3px 3px 5px green;
+	
+	/* opacity: 0.1; */
+}

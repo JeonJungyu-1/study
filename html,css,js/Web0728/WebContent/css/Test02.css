@@ -1,0 +1,76 @@
+@charset "EUC-KR";
+
+/* 전체 선택자: *  */
+* {
+	margin: 0; /* 여백 */
+}
+
+/* 태그(요소) 선택자: (태그명) */
+h1 {
+	color: red;
+}
+
+/* 아이디 선택자: # */
+#a01 {
+	color: blue;
+}
+
+#a02 {
+	color: green;
+}
+
+/* 클래스 선택자: . */
+.aClass {
+	background-color: yellow;	
+}
+
+.bClass {
+	border: 1px solid black;
+}
+
+/* 동시 조건(AND) : (두 선택자를  붙여서 사용) */
+#a01.aClass {
+	font-size: 200%;
+}
+
+/* 다중 조건(OR) */
+#a01, .bClass {
+	font-weight: bold;
+}
+
+/* 자식 선택자: > */
+ul>li {
+	border: 3px dashed red;
+}
+
+/* 후손 선택자: (공백) */
+ul li {
+	/* border: 3px dashed red; */
+}
+
+/* 속성 선택자: [] */
+[type] {
+	background-color: yellow;
+}
+
+[type=text] {
+	color: red;
+}
+
+input[type=button] {
+	color: green;
+}
+
+a:link {
+	color: green;
+	text-decoration: none;
+}
+
+a:visited {
+	color: black;
+}
+
+input[type=button]:hover {
+	color: white;
+	background-color: black;
+}

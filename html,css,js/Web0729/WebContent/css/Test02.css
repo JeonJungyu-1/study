@@ -1,0 +1,37 @@
+@charset "EUC-KR";
+
+div {
+	display: inline;
+}
+
+span {
+	display: block;
+	
+	/* 블록 요소에만 적용됨 */
+	width: 100px;
+	height: 100px;
+	
+	background-color: yellow;
+}
+
+a {
+	display: none;
+}
+
+input[type=text] {
+	width: 300px;
+}
+
+input[type=button] {
+	width: 120px;
+	height: 80px;
+	
+	font-size: 2em;
+}
+
+textarea {
+	width: 300px;
+	height: 120px;
+	
+	resize: none;
+}

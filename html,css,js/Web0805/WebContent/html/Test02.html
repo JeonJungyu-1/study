@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test 02</title>
+<script type="text/javascript" src="../js/Test02.js"></script>
+</head>
+<body>
+	<h1>이벤트</h1>
+	
+	<form action="Test01.html" onsubmit="return formCheck();">
+		ID <input type="text" id="userId" name="userId"><br>
+		PW <input type="password" id="userPw" name="userPw"><br>
+		<select id="userType" name="userType" onchange="changeFunc();">
+			<option value="none">선택하세요</option>
+			<option value="normal">일반사용자</option>
+			<option value="admin">운영자</option>
+		</select><br>
+		
+		<input type="submit" value="로그인">
+	</form>
+</body>
+</html>

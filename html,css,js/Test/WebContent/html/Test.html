@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+<script type="text/javascript" src="../js/Test.js"></script>
+<link rel="stylesheet" href="../css/Test.css">
+</head>
+<body>
+	<h1>회원가입</h1>
+	
+	<form action="Test2.html" onsubmit="return formCheck();">
+		<h3 class="red">필수 입력 정보</h3>
+		
+		<table id="table1">
+			<tr>
+				<td><b>ID</b></td>
+				<td><input type="text" id="userId" name="userId"></td>
+			</tr>
+			<tr>
+				<td><b>비밀번호</b></td>
+				<td><input type="password" id="userPw" name="userPw"></td>	
+			</tr>
+			<tr>
+				<td><b>비밀번호 확인</b></td>
+				<td><input type="password" id="userPwC" name="userPwC"></td>
+			</tr>
+		</table><br>
+		
+		
+		<h3>선택 입력 정보</h3>
+		
+		<table id="table2">
+			<tr>
+				<td><b>성별</b></td>
+				<td>
+					남성<input type="radio" id="userGender" name="userGender" value="male">
+					여성<input type="radio" id="userGender" name="userGender" value="female">
+				</td>
+			</tr>
+			<tr>
+				<td><b>나이<b></b></td>
+				<td><input type="text" id="userAge" name="userAge"></td>	
+			</tr>
+			<tr>
+				<td><b>직업</b></td>
+				<td>
+					<select id="userJob" name="userJob">
+						<option value="none">선택</option>
+						<option value="student">학생</option>
+						<option value="employee">회사원</option>
+						<option value="store">자영업</option>
+						<option value="other">기타</option>
+					</select>
+				</td>
+			</tr>
+		</table><br>
+		
+		<h3>이용 동의</h3>
+		
+		<table id="table3">
+			<tr>
+				<td>
+					<input type="checkbox" id="userAgree1" name="userAgree" value="term">이 사이트의 이용약관에 동의합니다.<span class="red"> (필수)</span><br>
+					<input type="checkbox" id="userAgree2" name="userAgree" value="personal">개인정보 수집 및 이용에 동의합니다.<span class="red"> (필수)</span><br>
+					<input type="checkbox" name="userAgree" value="eventInf">이벤트 정보 수신에 동의합니다.<span> (선택)</span><br>
+				</td>
+			</tr>
+		</table><br>
+		
+		
+		<table>
+			<tr>
+				<td><input type="submit" id="submit" value="회원 가입"></td>
+				<td><input type="reset" value="다시 입력"></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

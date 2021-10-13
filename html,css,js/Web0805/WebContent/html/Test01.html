@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test01</title>
+<script type="text/javascript" src="../js/Test01.js"></script>
+<style type="text/css">
+	#mouseCssBtn {
+		color: red;
+		background-color: green;
+	}
+	
+	#mouseCssBtn:hover {
+		color: yellow;
+		background-color: blue;
+	}
+</style>
+</head>
+<body>
+	<h1>이벤트(Event)</h1>
+	
+	<!-- 고전적 방식 -->
+	<button id="clickBtn1">Click!</button>
+	
+	<!-- 인라인 방식 -->
+	<button id="clickBtn2" onclick="clickFunc()">Click!!</button><br><br>
+	
+	<button id="mouseEventBtn">Click?</button>
+	<button id="mouseCssBtn">Click??</button><br><br>
+	
+	<input type="text" id="inputTxt1" onkeyup="keyupFunc();">
+	<div id="msg"></div>
+	
+	<input type="text" id="inputTxt2">
+</body>
+</html>

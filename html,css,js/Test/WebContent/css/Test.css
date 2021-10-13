@@ -1,0 +1,52 @@
+@charset"UTF-8";
+
+/* all table */
+table {
+	margin: 0 auto;
+}
+
+/* 필수 입력 정보 table */
+#table1 {
+	border-width: 1px;
+	border-style: dashed;
+	border-color: red;
+	text-align:center;
+}
+
+/* 선택 입력 정보 table */
+#table2 {
+	border-width: 1px;
+	border-style: solid;
+	border-color: black;
+}
+
+/* 이용 동의 table */
+#table3 {
+	border-width: 1px;
+	border-style: solid;
+	border-color: black;
+}
+
+/* 제목 */
+h1 {
+	text-align:center;
+}
+
+/* 소제목 */
+h3 {
+	text-align:center;
+}
+
+/* 빨간 글씨 */
+.red {
+	color: red;
+}
+
+/* 회원 가입 버튼 */
+#submit {
+	color: blue;
+	background-color: aqua;
+	border-width: 2px;
+	border-style: solid;
+	border-color: gray;
+}
