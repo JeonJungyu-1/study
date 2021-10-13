@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.scit.test9.dao.MemberMapper">
+
+<insert id="join" parameterType="member">
+	insert into
+		spring_member(
+		member_id
+		, member_pw
+		, member_nm
+		<if test="member_original != null and member_saved != null">
+		, member_original
+		, member_saved
+		</if>
+		) values(
+		#{member_id}
+		, #{member_pw}
+		, #{member_nm}
+		<if test="member_original != null and member_saved != null">
+		, #{member_original}
+		, #{member_saved}
+		</if>
+		)
+</insert>
+
+<select id="listForm" resultType="member" parameterType="string">
+	select 
+		member_id
+		, member_nm
+		, to_char(member_indate, 'yyyy-MM-dd') as member_indate
+	from
+		spring_member
+	<if test="_parameter != null">
+	where
+		upper(trim(member_nm)) like '%' || upper(trim(#{searchText})) || '%'
+	</if>	
+</select>
+
+<select id="login" parameterType="string" resultType="member">
+	select
+		member_id
+		, member_pw
+		, member_nm
+		, to_char(member_indate, 'yyyy-MM-dd') as member_indate
+	from
+		spring_member
+	where
+		member_id = #{member_id}
+</select>
+
+<delete id="delete" parameterType="string">
+	delete from
+		spring_member
+	where
+		member_id = #{member_id}
+</delete>
+
+<select id="totalRecord" parameterType="string" resultType="int">
+	select
+		count(*)
+	from
+		spring_member
+	<if test="_parameter != null">
+	where
+		upper(trim(member_nm)) like '%' || upper(trim(#{searchText})) || '%'
+	</if>	
+</select>
+</mapper>

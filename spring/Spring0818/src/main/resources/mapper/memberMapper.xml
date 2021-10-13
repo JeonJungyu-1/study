@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.scit.test6.dao.MemberMapper">
+
+<insert id="join" parameterType="member">
+	insert into
+		spring_tb2(
+			member_no
+			, member_nm
+			, member_gender
+		)values(
+			spring_tb2_seq.nextval
+			, #{member_nm}
+			, #{member_gender}
+		)
+</insert>
+
+</mapper>

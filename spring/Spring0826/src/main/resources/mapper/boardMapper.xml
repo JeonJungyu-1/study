@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.scit.test9.dao.BoardMapper">
+
+<insert id="write" parameterType="board">
+	insert into 
+		spring_board(
+			board_no
+			, board_title
+			, board_context
+			, member_id
+			<if test="board_original != null and board_saved != null">
+			, board_original
+			, board_saved
+			</if>
+		)values(
+			board_no_seq.nextval
+			, #{board_title}
+			, #{board_context}
+			, #{member_id}
+			<if test="board_original != null and board_saved != null">
+			, #{board_original}
+			, #{board_saved}
+			</if>
+		)	
+</insert>
+
+<select id="list" resultType="board" parameterType="string">
+	select
+		board_no
+		, board_title
+		, board_context
+		, member_id
+		, board_hits
+		, to_char(board_indate, 'yyyy-MM-dd HH24:MI:SS') as board_indate
+	from
+		spring_board
+	<if test="_parameter != null">
+		where
+			upper(trim(board_title)) like '%' || upper(trim(#{searchText})) || '%'
+	</if>
+	order by
+		board_indate desc
+</select>
+
+<select id="detail" parameterType="int" resultType="board">
+	select
+		board_no
+		, board_title
+		, board_context
+		, member_id
+		, board_hits
+		, to_char(board_indate, 'yyyy-MM-dd HH24:MI:SS') as board_indate
+		, board_original
+		, board_saved
+	from
+		spring_board
+	where
+		board_no = #{board_no}
+</select>
+
+<update id="updateHits" parameterType="board">
+	update
+		spring_board
+	set
+		board_hits = board_hits + 1
+	where
+		board_no = #{board_no}
+	and
+		member_id != #{member_id}
+</update>
+
+<delete id="delete" parameterType="board">
+	delete from
+		spring_board
+	where
+		board_no = #{board_no}
+	and
+		member_id = #{member_id}
+</delete>
+
+<update id="update" parameterType="board">
+	update
+		spring_board
+	set
+		board_title = #{board_title}
+		, board_context = #{board_context}
+		<if test="board_original != null and board_saved != null">
+		, board_original = #{board_original}
+		, board_saved = #{board_saved}
+		</if>
+	where
+		board_no = #{board_no}
+	and
+		member_id = #{member_id}
+</update>
+
+<select id="totalRecord" parameterType="string" resultType="int">
+	select
+		count(*)
+	from
+		spring_board
+	<if test="_parameter != null">
+		where
+			upper(trim(board_title)) like '%' || upper(trim(#{searchText})) || '%'
+	</if>
+</select>
+
+
+
+</mapper>

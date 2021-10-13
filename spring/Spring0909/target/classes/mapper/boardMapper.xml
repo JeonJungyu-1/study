@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.scit.test10.dao.BoardMapper">
+	
+	<select id="list" resultType="hashmap">
+		select
+			b.board_num as board_num
+			,b.board_title as board_title
+			,b.board_context as board_context
+			,b.id as id
+			,to_char(b.board_indate, 'yyyy-mm-dd') as board_indate
+			,u.name as name
+		from
+			spring_test_board b , spring_test_user u
+		where
+			b.id = u.id
+		order by
+			board_num desc
+	</select>
+
+
+
+
+</mapper>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.scit.test11.dao.MemberMapper">
+
+<insert id="join" parameterType="member">
+	insert into
+		blog_member(
+		member_id
+		, member_password
+		, member_name
+		, member_photo
+		) values(
+		#{member_id}
+		, #{member_password}
+		, #{member_name}
+		, #{member_photo}
+		)
+</insert>
+
+<select id="login" parameterType="string" resultType="member">
+	select
+		member_id
+		, member_password
+		, member_name
+		, member_photo
+	from
+		blog_member
+	where
+		member_id = #{member_id}
+</select>
+
+<select id="list" resultType="member">
+	select
+		member_id
+		, member_name
+		, member_photo
+	from
+		blog_member
+</select>
+</mapper>

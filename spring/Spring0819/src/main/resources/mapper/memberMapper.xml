@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.scit.test7.dao.MemberMapper">
+
+<insert id="join" parameterType="member">
+	insert into
+		spring_tb2(
+			member_no
+			, member_nm
+			, member_gender
+		)values(
+			spring_tb2_seq.nextval
+			, #{member_nm}
+			, #{member_gender}
+		)
+</insert>
+
+
+<!-- decode(member_gender,'m','남성','f','여성') as member_gender -->
+<select id="list" resultType="member">
+	select 
+		member_no
+		, member_nm
+		, member_gender 
+		, to_char(member_indate,'yyyy-MM-dd') as member_indate
+	from
+		spring_tb2
+	order by
+		member_no desc
+</select>
+
+
+<select id="search" parameterType="int" resultType="member">
+	select 
+		member_no
+		, member_nm
+		, decode(member_gender,'m','남성','f','여성') as member_gender
+		, to_char(member_indate,'yyyy-MM-dd') as member_indate
+	from
+		spring_tb2
+	where
+		member_no = #{member_no}
+</select>
+
+<delete id="delete" parameterType="int">
+	delete from
+		spring_tb2
+	where
+		member_no = #{member_no}
+</delete>
+
+
+<update id="update" parameterType="member">
+	update
+		spring_tb2
+	set
+		member_nm = #{member_nm}
+	where
+		member_no = #{member_no}
+</update>
+
+</mapper>
